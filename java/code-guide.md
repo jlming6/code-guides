@@ -15,19 +15,19 @@ Mainly include Java code principles, traps, pitfalls and corner cases.
 * [Concurrency](#concurrency)
 * [Reflection](#reflection)
 
-# Class
+## Class
 
-# Object Create & Destroy
+## Object Create & Destroy
 
-# Function
+## Function
 
-# Operation
+## Operation
 
-# Exceptions
+## Exceptions
 
-# String
+## String
 
-# Concurrency
+## Concurrency
 
-# Reflection
+## Reflection
 
