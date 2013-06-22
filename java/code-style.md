@@ -8,7 +8,7 @@ This Java code style recommends best-practices so that programmer can write code
 
 * [Source Code Layout](#source-code-layout)
 * [Naming](#naming)
-* [Comments](comments)
+* [Comments](#comments)
 
 ## Source Code Layout
 
