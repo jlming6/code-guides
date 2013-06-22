@@ -14,15 +14,17 @@ This Java code style recommends best-practices so that programmer can write code
 
 * Use `UTF-8` as the source file encoding.
     * If you're using Maven, just add following in your root parent pom.xml:
-	```xml
-	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	```
+    
+		```xml
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		```
 
 * Use Unix-style line endings.
     * If you're using Git and work on Windows, add git config:
-    ```
-    git config --global core.autocrlf true
-	```
+    
+	    ```
+	    git config --global core.autocrlf true
+		```
 
 * Format
 	* You can find all those settings in both Eclipse and IntelliJ.
@@ -39,13 +41,14 @@ This Java code style recommends best-practices so that programmer can write code
 	* `showNameString` is not better than `showName`
 * No member prefixes.
 	* Not recommend any prefix:
-	```Java
-	public class Video {
-		private String _name;
-		private String m_title;
-		private String description_;
-	}
-	```
+	
+		```Java
+		public class Video {
+			private String _name;
+			private String m_title;
+			private String description_;
+		}
+		```
 * Classes and objects should have noun names.
 * Method should have verb names.
 * Avoid using abbreviations. For example, use `firstName` instead of `fName`.
@@ -53,30 +56,35 @@ This Java code style recommends best-practices so that programmer can write code
 * Use the prefixes `get` and `set` for *getter* and *setter*, Use `is` and `has` for methods returns bealean value.
 * Conventions:
 	* Packages use Lowercase
-	```Java
-	package com.hulu.recommendation
-	```
+	
+		```Java
+		package com.hulu.recommendation
+		```
 	* Variables use Mixedcase
-	```Java
-	string videoTitle;
-	int packageGroupId;
-	```
+	
+		```Java
+		string videoTitle;
+		int packageGroupId;
+		```
 	* Classes and Interfaces use CamelCase
-	```Java
-	class Video
-	interface Filter
-	```
+	
+		```Java
+		class Video
+		interface Filter
+		```
 	* Methods use Mixedcase
-	```Java
-	void filterResult
-	string getVideoTitle
-	bool isVideoValid
-	```
+	
+		```Java
+		void filterResult
+		string getVideoTitle
+		bool isVideoValid
+		```
 	* Constants use Uppercase
-	```Java
-	static final int DEFAULT_PACKAGE_GROUP_ID
-	static final int MAX_HEIGHT
-	```
+	
+		```Java
+		static final int DEFAULT_PACKAGE_GROUP_ID
+		static final int MAX_HEIGHT
+		```
 
 ## Comments
 
@@ -90,14 +98,16 @@ This Java code style recommends best-practices so that programmer can write code
 	* Todo things.
 * Do NOT comment for What?
 	* Obviously
-	```
-	// parse user_id
-    UserId = ParamParser.ParseInt32(Params["user_id"], -1);
-    if (UserId < 0)
-    {
-        UserId = ParamParser.ParseInt32(Params["uid"], -1);  
-    }
-	```
+	
+		```C#
+		// parse user_id
+	    UserId = ParamParser.ParseInt32(Params["user_id"], -1);
+	    if (UserId < 0)
+	    {
+	        UserId = ParamParser.ParseInt32(Params["uid"], -1);  
+	    }
+		```
+	
 	* Change log, can keep in Git.
 	* Commented-Out code.
 * Keep comments update, can keep in Git.
