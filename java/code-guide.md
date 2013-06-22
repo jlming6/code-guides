@@ -7,7 +7,7 @@ Mainly include Java code principles, traps, pitfalls and corner cases.
 ## Table of Contents
 
 * [Class](#class)
-* [Object Create&Destroy](#object-create--destroy)
+* [Object Create & Destroy](#object-create--destroy)
 * [Function](#function)
 * [Operation](#operation)
 * [Exceptions](#exceptions)
@@ -17,7 +17,7 @@ Mainly include Java code principles, traps, pitfalls and corner cases.
 
 # Class
 
-# Object Create&Destroy
+# Object Create & Destroy
 
 # Function
 
