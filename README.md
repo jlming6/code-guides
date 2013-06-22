@@ -4,17 +4,19 @@
 
 This code guide project recommends best-practices and coding conventions for main programming languages.
 
-Now only Java.
+Now only has Java.
 
 For every language, there will be two sections:
 
 - Code Style: How to write beautiful, easy-understanding, maintainable code.
 - Code Guide: Language tips, trips, tricks.
 
-## Why
+## Why use markdown and host in Github
 
-- Syntax highlight.
-- Track the changes.
+- Better format
+- Syntax highlight
+- Track the changes
+- Easy to collaborate.
 
 ## How to contribute
 
