@@ -9,7 +9,7 @@ Now only has Java.
 For every language, there will be two sections:
 
 - Code Style: How to write beautiful, easy-understanding, maintainable code.
-- Code Guide: Language tips, trips, tricks.
+- Code Guide: Language tips, traps, tricks.
 
 ## Why use markdown and host in Github
 
