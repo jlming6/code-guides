@@ -53,34 +53,34 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
 		
 		instead of:
 		
-			```Java
-			class Item {
-			    public Item() {
-			        init();
-			    }
-			    
-			    protected void init() {
-			    }      
-			}
-			```
+		```Java
+		class Item {
+		    public Item() {
+		        init();
+		    }
+		    
+		    protected void init() {
+		    }      
+		}
+		```
 
 		recommend to use:
 			
-			```Java
-			class Item {
-			    protected Item() {
-			    }
-			
-			    protected void init() {
-			    }
-			
-			    public static Item newInstance() {
-			        Item item = new Item();
-			        item.init();
-			        return  item;
-			    }
-			}
-			```
+		```Java
+		class Item {
+		    protected Item() {
+		    }
+		
+		    protected void init() {
+		    }
+		
+		    public static Item newInstance() {
+		        Item item = new Item();
+		        item.init();
+		        return  item;
+		    }
+		}
+		```
 
 	* Instance control for immutable objects.
 	* Static factory methods can return objects of subType, this will decouple the interface implementation and usage.
