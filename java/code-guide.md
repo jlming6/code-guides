@@ -1,6 +1,6 @@
 # Code Guide
 
-Mainly include Java code principles, traps, pitfalls and corner cases.
+Mainly include Java code principles, tips, traps, pitfalls and corner cases.
 
 *This not a Java basic syntax guide or a Java introduction.*
 
@@ -30,7 +30,7 @@ Mainly include Java code principles, traps, pitfalls and corner cases.
 
 ## Object Create & Destroy
 
-* [**Recommend**] lightweight constructor.
+* **Recommend** lightweight constructor.
 	* What - Lightweight:
 		* Limited parameters.
 		* Only field assignment.
@@ -39,15 +39,15 @@ Mainly include Java code principles, traps, pitfalls and corner cases.
 	* Why:
 		* Testable.
 		* Single Responsibility.
-			* This object are not responsible for how to create dependencies, just know how to use(API).
+			* This object is not responsible for how to create dependencies, just know how to use interface.
 		* No magic things.
 	* How:
 		* Inject heavy objects.
 		* User static factory or builder pattern.
 		 
-* [**Recommend**] throw exceptions from constructor, if appropriate.
+* **Recommend** throw exceptions from constructor, if appropriate.
 
-* [**Recommend**] static factory methods instead of constructors.
+* **Recommend** static factory methods instead of constructors.
 	* Static factory methods have its own name, better express the construct.
 	* Can do complex things that are not inappropriate to do in constructor, like heavy initialization.
 		
@@ -63,6 +63,7 @@ Mainly include Java code principles, traps, pitfalls and corner cases.
 			    }      
 			}
 			```
+
 		recommend to use:
 			
 			```Java
@@ -80,6 +81,7 @@ Mainly include Java code principles, traps, pitfalls and corner cases.
 			    }
 			}
 			```
+
 	* Instance control for immutable objects.
 	* Static factory methods can return objects of subType, this will decouple the interface implementation and usage.
 	* Reduce the verbosity of creating parameterized type instance.

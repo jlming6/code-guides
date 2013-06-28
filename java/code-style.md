@@ -49,6 +49,7 @@ This Java code style recommends best-practices so that programmer can write code
 			private String description_;
 		}
 		```
+
 * Classes and objects should have noun names.
 * Method should have verb names.
 * Avoid using abbreviations. For example, use `firstName` instead of `fName`.
@@ -60,18 +61,21 @@ This Java code style recommends best-practices so that programmer can write code
 		```Java
 		package com.hulu.recommendation
 		```
+
 	* Variables use Mixedcase
 	
 		```Java
 		string videoTitle;
 		int packageGroupId;
 		```
+
 	* Classes and Interfaces use CamelCase
 	
 		```Java
 		class Video
 		interface Filter
 		```
+
 	* Methods use Mixedcase
 	
 		```Java
@@ -79,6 +83,7 @@ This Java code style recommends best-practices so that programmer can write code
 		string getVideoTitle
 		bool isVideoValid
 		```
+
 	* Constants use Uppercase
 	
 		```Java
