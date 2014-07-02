@@ -32,7 +32,7 @@ Reference: [Google Java Code Style](http://google-styleguide.googlecode.com/svn/
   * You can find all those settings in both Eclipse and IntelliJ.
   * Use four spaces per indentation level. No hard tabs.
   * Add space around binary-operator, after `for`, `while`, etc.
-  * Braces are used with if, else, for, do and while statements, even when the body is empty or contains only a single statement.
+  * Braces are used with if, else, for, do and while statements, even when the body is empty or contains only a single statement.([A famous bug](http://coolshell.cn/articles/11112.html))
   * One statement per line.
 
 * File Structure
