@@ -6,9 +6,11 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
 
 ## References:
 
-* [[Effective Java]](http://book.douban.com/subject/1246129/)
-* [[Clean Code]](http://book.douban.com/subject/3032825/)
+* [[Effective Java]](http://www.amazon.com/Effective-Java-Edition-Joshua-Bloch/dp/0321356683)
+* [[Clean Code]](http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
 * [[JPL Java Coding Standard]](http://lars-lab.jpl.nasa.gov/JPL_Coding_Standard_Java.pdf)
+* [[Java Concurrency in Practice]](http://www.amazon.com/Java-Concurrency-Practice-Brian-Goetz/dp/0321349601)
+* [[Java Puzzlers]](http://www.amazon.com/Java-Puzzlers-Traps-Pitfalls-Corner/dp/032133678X)
 
 ## Table of Contents
 
@@ -34,6 +36,8 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
 * Make class as immutable as possible.
 
 * Defensive Coding.
+
+* Premature optimization is the root of all evil.
 
 ## Class
 
@@ -180,15 +184,63 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
 * Use overloading as few as possible.
     * A safe, conservative policy is never to export two overloadings with the same number of parameters.
 
+* Return empty arrays or collections, not nulls.
+
 ## Operation
 
 ## Exceptions
 
+* Use exceptions only for exceptional conditions.
+    * What is exceptional condition?
+
+* Use unchecked exceptions for most conditions exception you have good reasons to use checked exceptions.
+
+* **Throw exceptions appropriate to the abstraction**.
+    * That is one reason why it will be better to use unchecked exception.
+    * Check exception will expose the implementation.
+
+* Include failure-capture context information in detail messages.
+
+* Stive for failure atomicity(Transation).
+
+* Never ignore(swallow) exceptions.
+
 ## String
+
+* Avoid string where other types are more appropriate.
+    * Enum
+    * Aggregate object. it is usually a bad idea to **_represent_** the object as a single string.
+
+* Beware the performance of string concatenation.
+    * Use StringBuilder to concatenate strings.
 
 ## Concurrency
 
+* Synchronization has no effect unless both read and write operations are synchronized.
+
+* Should do as little work as possible inside synchronized regions.
+
+* Prefer executors and tasks to threads.
+
+* To enable safe concurrent use, a class should clearly document what level of thread
+safety it supports.
+    * immutable
+    * unconditionally thread-safe
+    * conditionally thread-safe
+    * not thread-safe
+    * thread-hostile
+
+* Never depend on the thread scheduler(magic).
+
+* Thread Group?
+
 ## Reflection
+
+* Prefer interface to reflection.
+    * Lose all the benefits of compile-time type checking.
+    * The code required to perform reflective access is clumsy and verbose.
+    * Performance suffers.
+
 
 ## MISC
 
@@ -204,3 +256,12 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
     * Reasons:
         * Typographical errors may result in silent failures. (no compile check)
         * Naming pattern can match one usage, but annotations could be added many ones.
+
+* Avoid float and double if exact answers are required.
+
+* Prefer primitive types to boxed primitives.
+    * When you mix primitives and boxed primitives in a single operation, the boxed primitive is auto-unboxed.
+    So if a null object reference is auto-unboxed, you get a NullPointException
+
+* For interval timing, always use System.nanoTime in preference to System.currentTimeMillis.
+    System.nanoTime is both more accurate and more precise, and it is not affected by adjustments to the system's real-time clock.
