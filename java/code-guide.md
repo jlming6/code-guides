@@ -18,7 +18,7 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
 * [Class](#class)
 * [Object Create & Destroy](#object-create--destroy)
 * [Function](#function)
-* [Operation](#operation)
+* [Unit Test](#unit-test)
 * [Exceptions](#exceptions)
 * [String](#string)
 * [Concurrency](#concurrency)
@@ -186,9 +186,29 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
 
 * Return empty arrays or collections, not nulls.
 
-## Operation
+## Unit Test
+
+* Unit test cases should be independent from any externel resources, like DB, HTTP service, etc.
+    * for portal.
+    * for performance.
+    * for stable.
+
+* Unit test cases should be stable and repeatable.
+
+* Unit test cases should be fast.
+
+* Unit test cases should be independent from each other.
 
 ## Exceptions
+
+* Good exception:
+    * A clear message indicating that an error occurred.
+        * Meaningful message: help to recover the exception content
+    * An ordered classification.
+        * Fatal
+        * Error
+        * Warning
+        
 
 * Use exceptions only for exceptional conditions.
     * What is exceptional condition?
@@ -265,3 +285,11 @@ safety it supports.
 
 * For interval timing, always use System.nanoTime in preference to System.currentTimeMillis.
     System.nanoTime is both more accurate and more precise, and it is not affected by adjustments to the system's real-time clock.
+
+* Implement Serializable judiciously
+    * A major cost of implementing Serializable is that is decreases the flexibility
+    to change a class's implementation once it has been released(exported API).
+    * A second cost of implementing Serializable is that it increases the likelihood
+    of bugs and security holes.
+    * A third cost of implementing Serializable is that is increases the testing
+    burden associated with releasing a new version of a class.
