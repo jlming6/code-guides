@@ -46,6 +46,8 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
 
 * Consistent abstract level.
 
+* If the program is not straightforward as you think, there may be something wrong.
+
 ## Class
 
 * [SRP](http://en.wikipedia.org/wiki/Single_responsibility_principle)
@@ -257,7 +259,7 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
 * Do not abruptly exit a finally block.
     * A finally block should not contain a return statement and should not
     throw any exceptions that are not caught within the finally block.
-    * A finally block is entered when the try block finishes, reguardless of
+    * A finally block is entered when the try block finishes, regardless of
     whether it finishes normally or abnormally by throwing an exception.
     The case of concern is where the try code throws an exception giving rise
     to two distinct situations where the exception is lost. First, if the
@@ -343,3 +345,9 @@ safety it supports.
     * The assignment operator, +=, ++, etc.
     * Any other write operator.
     * Too magic.
+
+* Use x % 2 != 0 instead of x % 2 == 1.
+    * -7 % 2 = -1
+    * 7 % 2 = 1
+
+* Any null object as the left operator of instanceof, the result is false.
