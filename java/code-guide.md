@@ -2,7 +2,7 @@
 
 Mainly include Java code principles, tips, traps, pitfalls and corner cases.
 
-*This not a Java basic syntax guide or a Java introduction.*
+*This is not a Java basic syntax guide or a Java introduction.*
 
 ## References:
 
@@ -27,9 +27,14 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
 
 ## Principle
 
+* Apply the static analysis after finishing coding.
+
 * Errors should be detected as soon as possible after they are made, ideally at compile time.
 
-* Reduce the magic things in code. Do NOT depends on magic things.
+* Reduce the __*magic things*__ in code. Do NOT depends on magic things.
+    * What is magic thing?
+    * Out of Control: GC, Thread Synchronization, etc.
+    * Hard to understand: Clone, etc.
 
 * Reduce the possibility of misunderstanding by Compiler, JVM and other programmers.
 
@@ -39,7 +44,11 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
 
 * Premature optimization is the root of all evil.
 
+* Consistent abstract level.
+
 ## Class
+
+* [SRP](http://en.wikipedia.org/wiki/Single_responsibility_principle)
 
 * Always use @Override.
 
@@ -50,6 +59,15 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
 * Favor composition over inheritance.
 
 * Prefer interface to abstract class.
+
+* Never depends on Java instance initializer order.
+
+* Never redefine fields in a subclass.
+    * This will hide the field in superclass, and this is magic.
+
+* Avoid cyclic class dependencies.
+    * It is difficult to understand.
+    * Sometimes, this means the responsibility is not clear.
 
 ## Object Create & Destroy
 
@@ -120,6 +138,8 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
     ```
     Hard to understand, right? Use Builder Pattern.
 
+* The clone() method should never be overridden or even called.
+
 * Make singleton or helper class constructor private.
 
 * Pay attention to memory leak in:
@@ -129,8 +149,17 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
 
 * Avoid finalizer because it is unpredictable, often dangerous, and generally unnecessary(Magic).
     * Use try - finally instead.
+    * Finalizer will hide exceptions.
+    * May cause decreased performance.
 
 ## Function
+
+* Do one thing, and do it well.
+
+* No side-effect (magic).
+    * Do NOT do thing that can not be known from the function name.
+
+* Pay attend to function that will change the state of object.
 
 * **equals** rule:
     * [Equivalence relation](http://en.wikipedia.org/wiki/Equivalence_relation):
@@ -138,7 +167,7 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
         * Symmetric
         * Transitive
         * Consistent
-        * Non-nullity
+        * Non-nullity(null sensitive)
     * Standard Example:
         ```
         @Override
@@ -208,7 +237,7 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
         * Fatal
         * Error
         * Warning
-        
+
 
 * Use exceptions only for exceptional conditions.
     * What is exceptional condition?
@@ -224,6 +253,17 @@ Mainly include Java code principles, tips, traps, pitfalls and corner cases.
 * Stive for failure atomicity(Transation).
 
 * Never ignore(swallow) exceptions.
+
+* Do not abruptly exit a finally block.
+    * A finally block should not contain a return statement and should not
+    throw any exceptions that are not caught within the finally block.
+    * A finally block is entered when the try block finishes, reguardless of
+    whether it finishes normally or abnormally by throwing an exception.
+    The case of concern is where the try code throws an exception giving rise
+    to two distinct situations where the exception is lost. First, if the
+    finally block contains a return statement, then the original exception will
+    be discarded. Second, if there is an uncaught exception thrown in the
+    finally block, then the original exception will be discarded.
 
 ## String
 
@@ -293,3 +333,13 @@ safety it supports.
     of bugs and security holes.
     * A third cost of implementing Serializable is that is increases the testing
     burden associated with releasing a new version of a class.
+
+* Avoid to use wildcard(*) in import.
+
+* Use breaks in switch statements.
+    * Bad case: Murmur Hash Function in common-utils.
+
+* Restrict side effects in expressions.
+    * The assignment operator, +=, ++, etc.
+    * Any other write operator.
+    * Too magic.

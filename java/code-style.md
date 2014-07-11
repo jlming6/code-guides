@@ -62,7 +62,7 @@ Reference: [Google Java Code Style](http://google-styleguide.googlecode.com/svn/
 * Avoid using abbreviations. For example, use `firstName` instead of `fName`.
 * Avoid generic names like `number`, `process`, `manager`.
 * Use the prefixes `get` and `set` for *getter* and *setter*, Use `is` and `has` for methods returns bealean value.
-* Conventions:
+* [Conventions](http://www.oracle.com/technetwork/java/codeconventions-135099.html#367):
   * Packages use Lowercase
 
     ```Java
@@ -104,10 +104,12 @@ Reference: [Google Java Code Style](http://google-styleguide.googlecode.com/svn/
 >
 > -- Brian W.Kernighan and P.J.Plaugher
 
+* Comment do NOT make bad code better.
+
 * Comment for What?
   * Why you did this, why you did the decision.
   * Warning.
-  * Todo things.
+  * TODO things.
 * Do NOT comment for What?
   * Obviously
 
